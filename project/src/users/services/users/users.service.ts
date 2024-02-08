@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { Profile } from 'src/typeorm/entities/Profile';
 import { User } from 'src/typeorm/entities/User';
 import { createUserParams, updateUserParams } from 'src/utills/types';
 import { Repository } from 'typeorm';
@@ -12,7 +13,7 @@ export class UsersService {
     ){}
 
     findUser(){
-        return this.userRepository.find();
+        return this.userRepository.find({relations:['profile','posts']});
     }
 
     createUser(createUserDetails:createUserParams){

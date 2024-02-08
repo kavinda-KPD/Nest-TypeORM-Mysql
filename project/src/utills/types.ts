@@ -14,3 +14,8 @@ export type createUserProfileParams = {
     age: number
     dob: string
 }
+
+export type createUserPostParams = {
+    title: string
+    description: string
+}
